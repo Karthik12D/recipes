@@ -1,35 +1,35 @@
-## Objective
 
-Create a standalone java application which allows users to manage their favourite recipes. It should
-allow adding, updating, removing and fetching recipes. Additionally users should be able to filter
-available recipes based on one or more of the following criteria:
-1. Whether or not the dish is vegetarian
-2. The number of servings
-3. Specific ingredients (either include or exclude)
-4. Text search within the instructions.
+# Recipe Management System
 
+A system built to manage, store, and retrieve recipes with ease. Designed using the Layered Architectural Design pattern, maintainability, and efficient data access.
 
-For example, the API should be able to handle the following search requests:
-1. All vegetarian recipes
-2. Recipes that can serve 4 persons and have “potatoes” as an ingredient
-3. Recipes without “salmon” as an ingredient that has “oven” in the instructions.
+## Table of Contents
 
-## Requirements
-Please ensure that we have some documentation about the architectural choices and also how to
-run the application. The project is expected to be delivered as a GitHub (or any other public git
-hosting) repository URL.
+- [Features](#features)
+- [Architecture](#architecture)
+- [Setup guide](#setup-guide)
+- [Minimum Requirements](#minimum-requirements)
+- [Technologies](#technologies)
+- [My solution](#my-solution)
 
-All these requirements needs to be satisfied:
+## Architecture
 
-1. It must be a REST application implemented using Java (use a framework of your choice)
-2. Your code should be production-ready.
-3. REST API must be documented
-4. Data must be persisted in a database
-5. Unit tests must be present
-6. Integration tests must be present
+**Layered Architectural Design Pattern**:  
+The system is organized into distinct layers to separate concerns:
 
------------------------------------------
+1. **View/Controller Layer**: Manages the GUI and user interactions.
+2. **Service Layer**: Handles the business logic of the application, making use of DTOs (Data Transfer Objects) for efficient data operations.
+3. **DAO Layer**: Interfaces with the database for CRUD operations.
 
+This separation ensures that changes in one layer don't necessarily impact others, making the system more maintainable and scalable.
+
+## Features
+
+- **Search Recipes**: Quick search using the first letter to retrieve all relevant recipes.
+- **CRUD Operations**: Create, Read, and Update operations for recipes. (Delete operation is under development).
+- **Ingredient Management**: Separate management system for ingredients linked to recipes (currently under development).
+- **Error Handling**: Common handling of exceptions with error messages.
+- 
 ## Setup guide
 
 #### Minimum Requirements
@@ -65,6 +65,11 @@ Run the project
 ```text
 http://localhost:8090/openapi/swagger-ui/index.html
 ```
+
+## Technologies
+
+Java 17, Spring Boot 3.2, Spring Data JPA, H2 Database, OpenAPI, Swagger-UI, Maven, JUnit, Mockito
+
 
 -----------------------------------------
 ## My solution

@@ -9,16 +9,12 @@ public enum SearchOperation {
 
     public static Optional<SearchOperation> getOperation(final String input) {
         String lowerInput = input.toLowerCase();
-        switch (lowerInput) {
-            case "cn":
-                return Optional.of(CONTAINS);
-            case "nc":
-                return Optional.of(DOES_NOT_CONTAIN);
-            case "eq":
-                return Optional.of(EQUAL);
-            case "ne":
-                return Optional.of(NOT_EQUAL);
-        }
-        return Optional.empty();
+        return switch (lowerInput) {
+            case "cn"-> Optional.of(CONTAINS);
+            case "nc" -> Optional.of(DOES_NOT_CONTAIN);
+            case "eq" -> Optional.of(EQUAL);
+            case "ne" -> Optional.of(NOT_EQUAL);
+            default -> Optional.empty();
+        };
     }
 }
